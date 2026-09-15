@@ -548,14 +548,20 @@ footer h2 {
     align-items: center;
     justify-content: space-between;
     gap: 0.75rem;
+    width: 100%;
     margin-top: 0.75rem;
+    flex-wrap: wrap;
 }
 
 .class-price {
-    display: block;
+    display: inline-flex;
+    align-items: baseline;
+    white-space: nowrap;
     color: #f2c66d;
     font-family: inherit;
     font-size: 0.95rem;
+    font-weight: 700;
+    line-height: 1.2;
 }
 
 .class-card:hover {
@@ -573,6 +579,7 @@ footer h2 {
     flex: 0 0 auto;
     padding: 0.55rem 0.8rem;
     font-size: 0.95rem;
+    white-space: nowrap;
 }
 
 /* Footer closes the page with a softer version of the same palette. */
@@ -751,17 +758,17 @@ footer {
         flex: 0 1 auto;
     }
 
-    .about-layout > .founder-profile {
-        min-height: 0;
-        width: 100%;
-        order: 2;
-    }
-
     .about-layout > .about {
         order: 1;
     }
 
     .about-layout > .solution-card {
+        order: 2;
+    }
+
+    .about-layout > .founder-profile {
+        min-height: 0;
+        width: 100%;
         order: 3;
     }
 
@@ -786,6 +793,10 @@ footer {
         grid-template-columns: 1fr;
         gap: 1.5rem;
         text-align: center;
+    }
+
+    .footer-logo {
+        margin-inline: auto;
     }
 
     .social-media ul {
@@ -834,14 +845,5 @@ footer {
 
     .nav-menu a {
         font-size: 0.78rem;
-    }
-
-    .class-card {
-        align-items: flex-start;
-        flex-direction: column;
-    }
-
-    .btn-classes {
-        width: 100%;
     }
 }
