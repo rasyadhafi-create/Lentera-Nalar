@@ -270,10 +270,9 @@ main > .classes-banner {
 .about-layout {
     position: relative;
     isolation: isolate;
-    display: flex;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: minmax(0, 1.35fr) minmax(280px, 0.65fr);
     align-items: stretch;
-    flex-wrap: wrap;
     gap: 1.5rem;
     width: 100%;
     margin: 0;
@@ -303,7 +302,7 @@ main > .classes-banner {
 }
 
 .about-intro {
-    flex: 1 0 100%;
+    grid-column: 1 / -1;
     width: 100%;
     max-width: none;
     margin-inline: auto;
@@ -327,12 +326,12 @@ main > .classes-banner {
     line-height: 1.45;
 }
 
-.about-layout > .info-card {
+.about-layout > .info-card,
+.about-layout .founder-profile-card {
     min-width: 0;
     min-height: 320px;
     padding: 2.25rem;
     display: flex;
-    flex: 1 1 0;
     flex-direction: column;
     justify-content: center;
     background: linear-gradient(135deg, rgba(12, 9, 7, 0.78), rgba(48, 30, 20, 0.62));
@@ -341,6 +340,65 @@ main > .classes-banner {
     box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.28), inset 0 1px 0 rgba(255, 248, 233, 0.1);
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
+}
+
+.about-layout > .founder-profile {
+    display: flex;
+    min-width: 0;
+    min-height: 100%;
+    grid-column: 2;
+    grid-row: 2 / span 2;
+    align-items: stretch;
+}
+
+.founder-profile-card {
+    width: 100%;
+    min-height: 100%;
+    text-align: center;
+    border-radius: 1.5rem;
+    border-color: rgba(242, 198, 109, 0.58);
+    box-shadow: 0 1.25rem 2.5rem rgba(0, 0, 0, 0.36), inset 0 1px 0 rgba(255, 248, 233, 0.14);
+}
+
+.about-layout > .about {
+    grid-column: 1;
+    grid-row: 2;
+}
+
+.about-layout > .solution-card {
+    grid-column: 1;
+    grid-row: 3;
+}
+
+.profile-photo-placeholder {
+    display: block;
+    width: min(100%, 9rem);
+    aspect-ratio: 1;
+    margin: 0 auto 1.25rem;
+    border: 2px solid rgba(242, 198, 109, 0.6);
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.24);
+}
+
+.profile-education {
+    margin-top: 0.25rem !important;
+}
+
+.profile-link {
+    display: inline-block;
+    margin-top: 1.25rem;
+    color: #f2c66d;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.profile-link:hover {
+    color: #fff8e9;
+    text-decoration: underline;
 }
 
 .about-layout .info-card h3 {
@@ -378,6 +436,7 @@ footer h2 {
     padding: 6rem max(2rem, calc((100% - var(--content-width)) / 2));
     align-items: stretch;
     text-align: left;
+    font-family: 'Cormorant Garamond', serif;
     scroll-snap-align: start;
     background-color: #000;
     background-image: linear-gradient(180deg, #000 0%, rgba(0, 0, 0, 0.9) 9%, rgba(0, 0, 0, 0.58) 25%, rgba(0, 0, 0, 0.22) 58%, rgba(0, 0, 0, 0.38) 100%), url('../assets/images/classes-banner.png');
@@ -433,7 +492,7 @@ footer h2 {
     padding: 0.2rem 0.55rem;
     background: rgba(242, 198, 109, 0.12);
     color: #f2c66d;
-    font-family: 'Quicksand', sans-serif;
+    font-family: inherit;
     font-size: 0.68rem;
     font-weight: 700;
     letter-spacing: 0.03em;
@@ -460,7 +519,7 @@ footer h2 {
 .class-description {
     margin: 0.75rem 0 0;
     color: rgba(255, 248, 233, 0.82);
-    font-family: 'Quicksand', sans-serif;
+    font-family: inherit;
     font-size: 0.82rem;
     line-height: 1.5;
 }
@@ -472,7 +531,7 @@ footer h2 {
     margin: 0.8rem 0 0;
     padding: 0;
     color: rgba(255, 248, 233, 0.9);
-    font-family: 'Quicksand', sans-serif;
+    font-family: inherit;
     font-size: 0.85rem;
     line-height: 1.4;
 }
@@ -495,7 +554,7 @@ footer h2 {
 .class-price {
     display: block;
     color: #f2c66d;
-    font-family: 'Quicksand', sans-serif;
+    font-family: inherit;
     font-size: 0.95rem;
 }
 
@@ -524,6 +583,7 @@ footer {
     background: rgba(45, 34, 26, 0.88);
     border-top: 1px solid rgba(212, 163, 89, 0.3);
     color: rgba(255, 248, 233, 0.82);
+    font-family: 'Cormorant Garamond', serif;
 }
 
 .footer-inner {
@@ -542,6 +602,14 @@ footer {
     font-size: 1.1rem;
 }
 
+.footer-logo {
+    display: block;
+    width: 3.25rem;
+    height: 3.25rem;
+    margin-bottom: 0.65rem;
+    object-fit: contain;
+}
+
 .footer-brand h2 {
     font-family: 'Cormorant Garamond', serif;
     font-size: 1.7rem;
@@ -550,7 +618,7 @@ footer {
 .footer-brand p,
 .footer-contact p {
     margin: 0.3rem 0;
-    font-family: 'Quicksand', sans-serif;
+    font-family: inherit;
     font-size: 0.82rem;
     line-height: 1.5;
 }
@@ -577,7 +645,7 @@ footer {
     border: 1px solid rgba(242, 198, 109, 0.28);
     border-radius: 0.45rem;
     color: rgba(255, 248, 233, 0.82);
-    font-family: 'Quicksand', sans-serif;
+    font-family: inherit;
     font-size: 0.78rem;
     text-decoration: none;
     transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
@@ -592,7 +660,7 @@ footer {
 .copyright {
     margin: 2rem auto 0;
     color: rgba(255, 248, 233, 0.6);
-    font-family: 'Quicksand', sans-serif;
+    font-family: inherit;
     font-size: 0.8rem;
     text-align: center;
 }
@@ -663,8 +731,8 @@ footer {
 
     .about-layout {
         width: 100%;
+        display: flex;
         flex-direction: column;
-        flex-wrap: nowrap;
         gap: 1rem;
         padding: 6rem 1.25rem;
         background-position: 65% center;
@@ -675,11 +743,26 @@ footer {
         width: 100%;
     }
 
-    .about-layout > .info-card {
+    .about-layout > .info-card,
+    .about-layout .founder-profile-card {
         min-height: 0;
         width: 100%;
         padding: 2rem 1.5rem;
         flex: 0 1 auto;
+    }
+
+    .about-layout > .founder-profile {
+        min-height: 0;
+        width: 100%;
+        order: 2;
+    }
+
+    .about-layout > .about {
+        order: 1;
+    }
+
+    .about-layout > .solution-card {
+        order: 3;
     }
 
     .about-layout .info-card p {
