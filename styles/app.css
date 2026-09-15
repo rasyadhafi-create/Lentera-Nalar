@@ -230,6 +230,8 @@ footer {
     background: rgb(214, 212, 208);
 }
 
+/* Shared layout and visual system */
+/* Color tokens keep the page palette consistent across every section. */
 :root {
     --ink: #2f2118;
     --muted: #705d50;
@@ -248,6 +250,7 @@ footer {
     box-sizing: border-box;
 }
 
+/* Base page canvas and background atmosphere. */
 html {
     scroll-behavior: smooth;
 }
@@ -267,6 +270,7 @@ main {
     padding-top: 5.5rem;
 }
 
+/* Transparent brown-gold navigation shell. */
 .nav {
     width: min(var(--content-width), calc(100% - 2rem));
     min-height: 4.25rem;
@@ -302,6 +306,7 @@ main {
     color: rgba(255, 248, 233, 0.78);
 }
 
+/* Shared content rail keeps the sections aligned. */
 .home,
 .about-layout,
 .classes-banner {
@@ -314,6 +319,7 @@ main {
     padding: 6rem 0 7rem;
 }
 
+/* Hero typography establishes the first visual focus. */
 .hero-headline {
     max-width: 850px;
     margin: 0;
@@ -331,6 +337,7 @@ main {
     line-height: 1.6;
 }
 
+/* One button treatment is shared by the hero and class actions. */
 .btn-home,
 .btn-classes {
     border: 0;
@@ -364,6 +371,7 @@ main {
     outline-offset: 3px;
 }
 
+/* Divider and about cards create the page's main content rhythm. */
 .separator {
     width: min(var(--content-width), calc(100% - 4rem));
     margin: 0 auto;
@@ -388,6 +396,7 @@ footer h2 {
     color: var(--ink);
 }
 
+/* Classes are presented as a compact, scannable card grid. */
 .classes-banner {
     min-height: auto;
     padding: 5.5rem 0 6.5rem;
@@ -443,12 +452,14 @@ footer h2 {
     font-size: 0.95rem;
 }
 
+/* Footer closes the page with a softer version of the same palette. */
 footer {
     padding: 4rem 1.5rem 3rem;
     background: linear-gradient(135deg, #e8d7be, #d8b985);
     color: var(--muted);
 }
 
+/* Collapse navigation and class cards for smaller screens. */
 @media (max-width: 760px) {
     main {
         padding-top: 5rem;
@@ -501,6 +512,7 @@ footer {
     }
 }
 
+/* Stack card content when the narrowest screens need extra room. */
 @media (max-width: 420px) {
     .nav-logo {
         font-size: 1.15rem;
